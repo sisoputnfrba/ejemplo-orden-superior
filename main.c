@@ -3,12 +3,14 @@
 
 #include "auxiliares.h"
 
-bool esMayorA3(void *elemento) {
-	return string_length((char *)elemento) > 3;
-}
+void mostrarElementosLargos(t_list *lista, int longitudMinima) {
+	char *algunaCosa = "Un valor raro";
+	bool _esMayorAlParametro(void *elemento) {
+		printf("%s\n", algunaCosa);
+		return string_length((char *)elemento) > longitudMinima;
+	}
 
-void mostrarElementosLargos(t_list *lista) {
-	t_list *largos = list_filter(lista, esMayorA3);
+	t_list *largos = list_filter(lista, _esMayorAlParametro);
 	printf("Muestro los largos:\n");
 	mostrarElementos(largos);
 	list_destroy(largos);
@@ -19,7 +21,7 @@ int main(int argc, char **argv) {
 	printf("Muestro todos:\n");
 	mostrarElementos(lista);
 
-	mostrarElementosLargos(lista);
+	mostrarElementosLargos(lista, 4);
 
 	liberarLista(lista);
 	return 0;
