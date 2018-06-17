@@ -1,0 +1,4 @@
+.settings/
+*.o
+*.d
+/Debug/ejemplo-orden-superior
